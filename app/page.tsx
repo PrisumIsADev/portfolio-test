@@ -337,6 +337,7 @@ export default function Component() {
                     <p className="text-lg mb-6">
                       I&apos;m always open to new opportunities, collaborations, or just a friendly chat about tech. Feel free to reach out to me using the form or through my social media channels.
                     </p>
+
                     <div className="space-y-4 mb-8">
                       <div className="flex items-center">
                         <FaEnvelope className="w-6 h-6 mr-2 text-blue-400" />
