@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring, useScroll } from 'framer-motion'
 import { FaGithub, FaTwitter, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import Image from 'next/image'
 
 export default function Component() {
   const [isLoading, setIsLoading] = useState(true)
@@ -30,7 +31,7 @@ export default function Component() {
       window.removeEventListener('mousemove', moveCursor)
       clearTimeout(timer)
     }
-  }, [])
+  }, [cursorX, cursorY])
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
@@ -40,9 +41,9 @@ export default function Component() {
   }
 
   const tabContent = {
-    'what-i-do': 'I specialize in Python, HTML, CSS, Next.js, TypeScript and React.',
-    'projects': 'I have worked on many projects, from machine learning algorithms to educational mobile apps.',
-    'hire-me': "I am available for simple projects with the languages I have listed."
+    'what-i-do': 'I specialize in building robust and scalable web applications using modern technologies. My expertise includes front-end development with React, back-end development with Node.js, and database management with MongoDB and PostgreSQL. I also have experience with cloud services like AWS and containerization with Docker.',
+    'projects': 'My portfolio includes a diverse range of projects, from full-stack web applications to mobile apps and AI-powered tools. Check out my Projects section to see detailed case studies of my work, including technologies used and challenges overcome.',
+    'hire-me': "I&apos;m available for freelance work and open to full-time opportunities. Whether you need a custom web application, a mobile app, or technical consultation, I&apos;m here to help bring your ideas to life. Let&apos;s discuss how we can work together to achieve your goals."
   }
 
   const fadeInUp = {
@@ -116,7 +117,7 @@ export default function Component() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                   >
-                    A 13 year old passionate full-stack developer dedicated to crafting perfect and efficient Coding projects. With a keen eye for detail and a love for clean code, I transform complex problems into scalable applications.
+                    A passionate full-stack developer dedicated to crafting elegant, efficient, and user-centric digital solutions. With a keen eye for detail and a love for clean code, I transform complex problems into intuitive and scalable applications.
                   </motion.p>
                   <div className="flex space-x-4 mb-8">
                     {Object.keys(tabContent).map((tab, index) => (
@@ -164,10 +165,10 @@ export default function Component() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                   >
-                    <img src="https://rockethosting.xyz/static/p.png" alt="Prisum" className="rounded-lg shadow-lg mb-6" />
+                    <Image src="/placeholder.svg?height=400&width=400" alt="Prisum" width={400} height={400} className="rounded-lg shadow-lg mb-6" />
                     <div className="flex space-x-4 justify-center">
-                      <motion.a href="https://github.com/PrisumDevolopes" className="text-blue-400 hover:text-blue-300 transition-colors" whileHover={{ scale: 1.2 }}><FaGithub size={24} /></motion.a>
-                      <motion.a href="https://x.com/PrisumDevelopes" className="text-blue-400 hover:text-blue-300 transition-colors" whileHover={{ scale: 1.2 }}><FaTwitter size={24} /></motion.a>
+                      <motion.a href="#" className="text-blue-400 hover:text-blue-300 transition-colors" whileHover={{ scale: 1.2 }}><FaGithub size={24} /></motion.a>
+                      <motion.a href="#" className="text-blue-400 hover:text-blue-300 transition-colors" whileHover={{ scale: 1.2 }}><FaTwitter size={24} /></motion.a>
                     </div>
                   </motion.div>
                   <div>
@@ -241,7 +242,7 @@ export default function Component() {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                      <Image src={project.image} alt={project.title} width={400} height={200} className="w-full h-48 object-cover" />
                       <div className="p-6">
                         <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                         <p className="text-gray-400 mb-4">{project.description}</p>
@@ -254,6 +255,7 @@ export default function Component() {
                         </div>
                         <motion.a 
                           href="#" 
+                
                           className="text-blue-400 hover:underline"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
@@ -273,7 +275,6 @@ export default function Component() {
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
-                
                   viewport={{ once: true }}
                 >
                   Latest Articles
