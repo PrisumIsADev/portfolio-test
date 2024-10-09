@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { motion, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion'
-import { FaGithub, FaTwitter, FaLinkedin, FaDev, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import { motion, useMotionValue, useSpring, useScroll } from 'framer-motion'
+import { FaGithub, FaTwitter, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import Image from 'next/image'
+import Head from 'next/head'
 
-export default function App() {
+export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
@@ -16,7 +18,6 @@ export default function App() {
   const [submitMessage, setSubmitMessage] = useState('')
 
   const { scrollYProgress } = useScroll()
-  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1])
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
@@ -29,7 +30,7 @@ export default function App() {
       window.removeEventListener('mousemove', moveCursor)
       clearTimeout(timer)
     }
-  }, [])
+  }, [cursorX, cursorY])
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
@@ -41,7 +42,7 @@ export default function App() {
   const tabContent = {
     'what-i-do': 'I specialize in building robust and scalable web applications using modern technologies. My expertise includes front-end development with React, back-end development with Node.js, and database management with MongoDB and PostgreSQL. I also have experience with cloud services like AWS and containerization with Docker.',
     'projects': 'My portfolio includes a diverse range of projects, from full-stack web applications to mobile apps and AI-powered tools. Check out my Projects section to see detailed case studies of my work, including technologies used and challenges overcome.',
-    'hire-me': 'I\'m available for freelance work and open to full-time opportunities. Whether you need a custom web application, a mobile app, or technical consultation, I\'m here to help bring your ideas to life. Let\'s discuss how we can work together to achieve your goals.'
+    'hire-me': "I'm available for freelance work and open to full-time opportunities. Whether you need a custom web application, a mobile app, or technical consultation, I'm here to help bring your ideas to life. Let's discuss how we can work together to achieve your goals."
   }
 
   const fadeInUp = {
@@ -54,7 +55,7 @@ export default function App() {
     setIsSubmitting(true)
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000))
-    setSubmitMessage('Thank you for your message. I\'ll get back to you soon!')
+    setSubmitMessage("Thank you for your message. I'll get back to you soon!")
     setFormState({ name: '', email: '', message: '' })
     setIsSubmitting(false)
   }
@@ -65,6 +66,11 @@ export default function App() {
 
   return (
     <div className="bg-black text-white min-h-screen">
+      <Head>
+        <title>Prisum - Full Stack Developer</title>
+        <meta name="description" content="Portfolio of Prisum, a full stack developer specializing in React, Node.js, and cloud technologies." />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       {isLoading ? (
         <motion.div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black"
@@ -107,7 +113,7 @@ export default function App() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                   >
-                    Hi, I'm <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Prisum</span>
+                    Hi, I&apos;m <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Prisum</span>
                   </motion.h1>
                   <motion.p 
                     className="text-xl mb-8 max-w-2xl"
@@ -140,7 +146,7 @@ export default function App() {
                     transition={{ duration: 0.3 }}
                     className="bg-gray-800 p-6 rounded-md"
                   >
-                    {tabContent[activeTab]}
+                    {tabContent[activeTab as keyof typeof tabContent]}
                   </motion.div>
                 </div>
               </section>
@@ -163,12 +169,10 @@ export default function App() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                   >
-                    <img src="/placeholder.svg?height=400&width=400" alt="Prisum" className="rounded-lg shadow-lg mb-6" />
+                    <Image src="/placeholder.svg" alt="Prisum" width={400} height={400} className="rounded-lg shadow-lg mb-6" />
                     <div className="flex space-x-4 justify-center">
                       <motion.a href="#" className="text-blue-400 hover:text-blue-300 transition-colors" whileHover={{ scale: 1.2 }}><FaGithub size={24} /></motion.a>
                       <motion.a href="#" className="text-blue-400 hover:text-blue-300 transition-colors" whileHover={{ scale: 1.2 }}><FaTwitter size={24} /></motion.a>
-                      <motion.a href="#" className="text-blue-400 hover:text-blue-300 transition-colors" whileHover={{ scale: 1.2 }}><FaLinkedin size={24} /></motion.a>
-                      <motion.a href="#" className="text-blue-400 hover:text-blue-300 transition-colors" whileHover={{ scale: 1.2 }}><FaDev size={24} /></motion.a>
                     </div>
                   </motion.div>
                   <div>
@@ -179,7 +183,7 @@ export default function App() {
                       transition={{ duration: 0.8 }}
                       viewport={{ once: true }}
                     >
-                      Hi, I'm Prisum, a passionate full-stack developer with over 5 years of experience in creating web and mobile applications. I specialize in React, Node.js, and cloud technologies, with a keen interest in AI and machine learning applications in web development.
+                      Hi, I&apos;m Prisum, a passionate full-stack developer with over 5 years of experience in creating web and mobile applications. I specialize in React, Node.js, and cloud technologies, with a keen interest in AI and machine learning applications in web development.
                     </motion.p>
                     <motion.p 
                       className="text-lg mb-6"
@@ -188,7 +192,7 @@ export default function App() {
                       transition={{ duration: 0.8, delay: 0.2 }}
                       viewport={{ once: true }}
                     >
-                      My journey in tech started when I built my first website at the age of 15. Since then, I've been constantly learning and exploring new technologies to improve my skills and create better solutions. I'm driven by the desire to solve complex problems and create intuitive, user-friendly applications that make a positive impact.
+                      My journey in tech started when I built my first website at the age of 15. Since then, I&apos;ve been constantly learning and exploring new technologies to improve my skills and create better solutions. I&apos;m driven by the desire to solve complex problems and create intuitive, user-friendly applications that make a positive impact.
                     </motion.p>
                     <motion.h3 
                       className="text-2xl font-bold mb-4"
@@ -230,9 +234,9 @@ export default function App() {
                 </motion.h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {[
-                    { title: "EcoTrack", description: "A sustainability app that helps users reduce their carbon footprint through personalized recommendations and community challenges.", image: "/placeholder.svg?height=200&width=400", tags: ["React Native", "Node.js", "MongoDB"] },
-                    { title: "CodeCollab", description: "Real-time collaborative coding platform with integrated video chat and version control, designed for remote pair programming.", image: "/placeholder.svg?height=200&width=400", tags: ["React", "Socket.io", "WebRTC"] },
-                    { title: "AI Content Assistant", description: "An AI-powered tool that helps content creators generate ideas, outlines, and drafts for articles and social media posts.", image: "/placeholder.svg?height=200&width=400", tags: ["Python", "Flask", "OpenAI API"] }
+                    { title: "EcoTrack", description: "A sustainability app that helps users reduce their carbon footprint through personalized recommendations and community challenges.", image: "/placeholder.svg", tags: ["React Native", "Node.js", "MongoDB"] },
+                    { title: "CodeCollab", description: "Real-time collaborative coding platform with integrated video chat and version control, designed for remote pair programming.", image: "/placeholder.svg", tags: ["React", "Socket.io", "WebRTC"] },
+                    { title: "AI Content Assistant", description: "An AI-powered tool that helps content creators generate ideas, outlines, and drafts for articles and social media posts.", image: "/placeholder.svg", tags: ["Python", "Flask", "OpenAI API"] }
                   ].map((project, index) => (
                     <motion.div
                       key={index}
@@ -242,13 +246,13 @@ export default function App() {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                      <Image src={project.image} alt={project.title} width={400} height={200} className="w-full h-48 object-cover" />
                       <div className="p-6">
                         <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                         <p className="text-gray-400 mb-4">{project.description}</p>
                         <div className="flex flex-wrap gap-2 mb-4">
                           {project.tags.map((tag, tagIndex) => (
-                            <span key={tagIndex} className="bg-gray-700 text-blue-400 px-2  py-1 rounded-full text-sm">
+                            <span key={tagIndex} className="bg-gray-700 text-blue-400 px-2 py-1 rounded-full text-sm">
                               {tag}
                             </span>
                           ))}
@@ -334,8 +338,9 @@ export default function App() {
                     viewport={{ once: true }}
                   >
                     <p className="text-lg mb-6">
-                      I'm always open to new opportunities, collaborations, or just a friendly chat about tech. Feel free to reach out to me using the form or through my social media channels.
+                      I&apos;m always open to new opportunities, collaborations, or just a friendly chat about tech. Feel free to reach out to me using the form or through my social media channels.
                     </p>
+
                     <div className="space-y-4 mb-8">
                       <div className="flex items-center">
                         <FaEnvelope className="w-6 h-6 mr-2 text-blue-400" />
