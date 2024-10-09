@@ -43,7 +43,7 @@ export default function Component() {
   const tabContent = {
     'what-i-do': 'I specialize in building robust and scalable web applications using modern technologies. My expertise includes front-end development with React, back-end development with Node.js, and database management with MongoDB and PostgreSQL. I also have experience with cloud services like AWS and containerization with Docker.',
     'projects': 'My portfolio includes a diverse range of projects, from full-stack web applications to mobile apps and AI-powered tools. Check out my Projects section to see detailed case studies of my work, including technologies used and challenges overcome.',
-    'hire-me': "I&apos;m available for freelance work and open to full-time opportunities. Whether you need a custom web application, a mobile app, or technical consultation, I&apos;m here to help bring your ideas to life. Let&apos;s discuss how we can work together to achieve your goals."
+    'hire-me': "I'm available for freelance work and open to full-time opportunities. Whether you need a custom web application, a mobile app, or technical consultation, I'm here to help bring your ideas to life. Let's discuss how we can work together to achieve your goals."
   }
 
   const fadeInUp = {
@@ -56,7 +56,7 @@ export default function Component() {
     setIsSubmitting(true)
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000))
-    setSubmitMessage("Thank you for your message. I&apos;ll get back to you soon!")
+    setSubmitMessage("Thank you for your message. I'll get back to you soon!")
     setFormState({ name: '', email: '', message: '' })
     setIsSubmitting(false)
   }
@@ -109,7 +109,7 @@ export default function Component() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                   >
-                    Hi, I&apos;m <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Prisum</span>
+                    Hi, I'm <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Prisum</span>
                   </motion.h1>
                   <motion.p 
                     className="text-xl mb-8 max-w-2xl"
@@ -179,40 +179,26 @@ export default function Component() {
                       transition={{ duration: 0.8 }}
                       viewport={{ once: true }}
                     >
-                      Hi, I&apos;m Prisum, a passionate full-stack developer with over 5 years of experience in creating web and mobile applications. I specialize in React, Node.js, and cloud technologies, with a keen interest in AI and machine learning applications in web development.
+                      I am a dedicated developer with a passion for crafting intuitive web and mobile applications. My journey began with a desire to create solutions that make a positive impact in the world.
                     </motion.p>
-                    <motion.p 
+                    <motion.p
                       className="text-lg mb-6"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.2 }}
                       viewport={{ once: true }}
                     >
-                      My journey in tech started when I built my first website at the age of 15. Since then, I&apos;ve been constantly learning and exploring new technologies to improve my skills and create better solutions. I&apos;m driven by the desire to solve complex problems and create intuitive, user-friendly applications that make a positive impact.
+                      When I’m not coding, you can find me exploring the latest tech trends, hiking in nature, or honing my skills in AI and machine learning.
                     </motion.p>
-                    <motion.h3 
-                      className="text-2xl font-bold mb-4"
+                    <motion.p
+                      className="text-lg mb-6"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.4 }}
                       viewport={{ once: true }}
                     >
-                      My Expertise
-                    </motion.h3>
-                    <motion.ul 
-                      className="list-disc list-inside space-y-2 mb-6"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.6 }}
-                      viewport={{ once: true }}
-                    >
-                      <li>Front-end Development (React, Vue.js, Angular)</li>
-                      <li>Back-end Development (Node.js, Python, Ruby on Rails)</li>
-                      <li>Database Management (MongoDB, PostgreSQL, MySQL)</li>
-                      <li>Cloud Services (AWS, Google Cloud, Azure)</li>
-                      <li>DevOps and CI/CD (Docker, Kubernetes, Jenkins)</li>
-                      <li>Mobile App Development (React Native, Flutter)</li>
-                    </motion.ul>
+                      I believe in continuous learning and collaboration, and I’m always excited to connect with like-minded individuals and teams.
+                    </motion.p>
                   </div>
                 </div>
               </section>
@@ -228,92 +214,25 @@ export default function Component() {
                 >
                   Projects
                 </motion.h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {[
-                    { title: "EcoTrack", description: "A sustainability app that helps users reduce their carbon footprint through personalized recommendations and community challenges.", image: "/placeholder.svg?height=200&width=400", tags: ["React Native", "Node.js", "MongoDB"] },
-                    { title: "CodeCollab", description: "Real-time collaborative coding platform with integrated video chat and version control, designed for remote pair programming.", image: "/placeholder.svg?height=200&width=400", tags: ["React", "Socket.io", "WebRTC"] },
-                    { title: "AI Content Assistant", description: "An AI-powered tool that helps content creators generate ideas, outlines, and drafts for articles and social media posts.", image: "/placeholder.svg?height=200&width=400", tags: ["Python", "Flask", "OpenAI API"] }
-                  ].map((project, index) => (
-                    <motion.div
-                      key={index}
-                      className="bg-gray-800 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-                      initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <Image src={project.image} alt={project.title} width={400} height={200} className="w-full h-48 object-cover" />
-                      <div className="p-6">
-                        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                        <p className="text-gray-400 mb-4">{project.description}</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {project.tags.map((tag, tagIndex) => (
-                            <span key={tagIndex} className="bg-gray-700 text-blue-400 px-2 py-1 rounded-full text-sm">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        <motion.a 
-                          href="#" 
-                
-                          className="text-blue-400 hover:underline"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          View Project
-                        </motion.a>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Blog Section */}
-              <section id="blog" className="py-16">
-                <motion.h2 
-                  className="text-4xl font-bold mb-8"
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-12"
                 >
-                  Latest Articles
-                </motion.h2>
-                <div className="space-y-8">
-                  {[
-                    { title: "The Future of Web Development: Trends to Watch in 2023", date: "July 15, 2023", excerpt: "Explore emerging technologies and methodologies that are shaping the future of web development...", tags: ["Web Development", "Trends"] },
-                    { title: "Optimizing React Applications for Performance", date: "July 1, 2023", excerpt: "Learn advanced techniques to boost the performance of your React applications...", tags: ["React", "Performance"] },
-                    { title: "Introduction to Serverless Architecture", date: "June 15, 2023", excerpt: "Discover the benefits and use cases of serverless architecture in modern application development...", tags: ["Serverless", "Cloud Computing"] }
-                  ].map((article, index) => (
-                    <motion.div 
-                      key={index} 
-                      className="border-b border-gray-800 pb-8"
-                      initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <h3 className="text-xl font-bold mb-2">{article.title}</h3>
-                      <p className="text-gray-400 mb-4">Posted on {article.date}</p>
-                      <p className="mb-4">{article.excerpt}</p>
-                      <div className="flex space-x-2 mb-4">
-                        {article.tags.map((tag, tagIndex) => (
-                          <span key={tagIndex} className="bg-gray-800 text-blue-400 px-3 py-1 rounded-full text-sm">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      <motion.a 
-                        href="#" 
-                        className="text-blue-400 hover:underline"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Read Article
-                      </motion.a>
-                    </motion.div>
-                  ))}
-                </div>
+                  {/* Example Project Card */}
+                  <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+                    <h3 className="text-xl font-semibold mb-2">Project Title</h3>
+                    <p className="text-gray-300">Brief description of the project goes here. Explain the technology used and the problem it solves.</p>
+                    <div className="flex space-x-2 mt-4">
+                      <a href="#" className="text-blue-400">View Project</a>
+                      <span className="text-gray-500">|</span>
+                      <a href="#" className="text-blue-400">GitHub Repo</a>
+                    </div>
+                  </div>
+                  {/* Add more project cards as needed */}
+                </motion.div>
               </section>
 
               {/* Contact Section */}
@@ -327,111 +246,63 @@ export default function Component() {
                 >
                   Contact Me
                 </motion.h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                  <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                  >
-                    <p className="text-lg mb-6">
-                      I&apos;m always open to new opportunities, collaborations, or just a friendly chat about tech. Feel free to reach out to me using the form or through my social media channels.
-                    </p>
-
-                    <div className="space-y-4 mb-8">
-                      <div className="flex items-center">
-                        <FaEnvelope className="w-6 h-6 mr-2 text-blue-400" />
-                        <span>prisum@example.com</span>
-                      </div>
-                      <div className="flex items-center">
-                        <FaPhone className="w-6 h-6 mr-2 text-blue-400" />
-                        <span>+1 (555) 123-4567</span>
-                      </div>
-                      <div className="flex items-center">
-                        <FaMapMarkerAlt className="w-6 h-6 mr-2 text-blue-400" />
-                        <span>San Francisco, CA</span>
-                      </div>
-                    </div>
-                  </motion.div>
-                  <motion.form 
-                    onSubmit={handleSubmit} 
-                    className="space-y-6"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                  >
+                <form onSubmit={handleSubmit} className="bg-gray-800 p-6 rounded-lg">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-300">Name</label>
+                      <label htmlFor="name" className="block text-sm mb-1">Name</label>
                       <input
                         type="text"
-                        id="name"
                         name="name"
+                        id="name"
+                        required
                         value={formState.name}
                         onChange={handleChange}
-                        required
-                        className="mt-1 block w-full rounded-md bg-gray-800 border-gray-700 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                        className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-300">Email</label>
+                      <label htmlFor="email" className="block text-sm mb-1">Email</label>
                       <input
                         type="email"
-                        id="email"
                         name="email"
+                        id="email"
+                        required
                         value={formState.email}
                         onChange={handleChange}
-                        required
-                        className="mt-1 block w-full rounded-md bg-gray-800 border-gray-700 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                        className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
                       />
                     </div>
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-300">Message</label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        value={formState.message}
-                        onChange={handleChange}
-                        required
-                        className="mt-1 block w-full rounded-md bg-gray-800 border-gray-700 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-                      ></textarea>
-                    </div>
-                    <motion.button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors disabled:opacity-50"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
-                    </motion.button>
-                    {submitMessage && (
-                      <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-green-400 text-center"
-                      >
-                        {submitMessage}
-                      </motion.p>
-                    )}
-                  </motion.form>
-                </div>
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm mb-1">Message</label>
+                    <textarea
+                      name="message"
+                      id="message"
+                      required
+                      value={formState.message}
+                      onChange={handleChange}
+                      className="w-full p-2 bg-gray-700 border border-gray-600 rounded"
+                      rows={5}
+                    ></textarea>
+                  </div>
+                  <button 
+                    type="submit" 
+                    className={`mt-4 px-6 py-2 rounded-md ${isSubmitting ? 'bg-gray-600' : 'bg-blue-600 hover:bg-blue-500'}`} 
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Send Message'}
+                  </button>
+                  {submitMessage && <p className="mt-2 text-green-500">{submitMessage}</p>}
+                </form>
               </section>
             </motion.div>
           </main>
-          <footer className="container mx-auto px-6 py-8 text-center text-gray-400">
-            © {new Date().getFullYear()} Prisum. All rights reserved.
+          <footer className="bg-black bg-opacity-90 py-4">
+            <div className="container mx-auto px-6 text-center">
+              <p className="text-gray-400">© 2024 by Prisum. All rights reserved.</p>
+            </div>
           </footer>
-          <motion.div
-            className="fixed top-0 left-0 w-4 h-4 rounded-full bg-white mix-blend-difference pointer-events-none z-50"
-            style={{
-              x: cursorXSpring,
-              y: cursorYSpring,
-            }}
-          />
         </>
       )}
-    </div>
-  )
-}
+      <motion.div
+        className="fixed left-0 top-0 w-2 h-full bg-blue-
