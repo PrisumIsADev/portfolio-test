@@ -18,8 +18,6 @@ export default function App() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
 
-  const { scrollYProgress } = useScroll()
-
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - 8)
@@ -270,10 +268,10 @@ export default function App() {
               {/* Blog Section */}
               <section id="blog" className="py-16">
                 <motion.h2 
-                  className="text-4xl font-bold  mb-8"
+                  className="text-4xl font-bold mb-8"
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
+                  transition={{ duration: 0.8  }}
                   viewport={{ once: true }}
                 >
                   Latest Articles
