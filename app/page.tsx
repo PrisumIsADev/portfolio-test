@@ -1,8 +1,10 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { motion, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion'
-import { FaGithub, FaTwitter, FaLinkedin, FaDev, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import Image from 'next/image'
+import { motion, useMotionValue, useSpring, useScroll } from 'framer-motion'
+import { FaGithub, FaTwitter, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+
 export default function App() {
   const [isLoading, setIsLoading] = useState(true)
   const cursorX = useMotionValue(-100)
@@ -39,8 +41,8 @@ export default function App() {
   }
 
   const tabContent = {
-    'what-i-do': 'I specialize in Python, HTMl, CSS, Next JS, Typescript and React.',
-    'projects': 'I have worked on many projects, from machine learning algorothms to educational mobile apps.',
+    'what-i-do': 'I specialize in Python, HTML, CSS, Next JS, TypeScript and React.',
+    'projects': 'I have worked on many projects, from machine learning algorithms to educational mobile apps.',
     'hire-me': "I am available for simple projects with the languages I have listed."
   }
 
@@ -54,7 +56,7 @@ export default function App() {
     setIsSubmitting(true)
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000))
-    setSubmitMessage("Thank you for your message. I'll get back to you soon!")
+    setSubmitMessage("Thank you for your message. I&apos;ll get back to you soon!")
     setFormState({ name: '', email: '', message: '' })
     setIsSubmitting(false)
   }
@@ -65,7 +67,6 @@ export default function App() {
 
   return (
     <div className="bg-black text-white min-h-screen">
-
       {isLoading ? (
         <motion.div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black"
@@ -108,7 +109,7 @@ export default function App() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                   >
-                    Hi, I'm <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Prisum</span>
+                    Hi, I&apos;m <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">Prisum</span>
                   </motion.h1>
                   <motion.p 
                     className="text-xl mb-8 max-w-2xl"
@@ -164,7 +165,7 @@ export default function App() {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                   >
-                    <img src="https://rockethosting.xyz/static/p.png" alt="Prisum" className="rounded-lg shadow-lg mb-6" />
+                    <Image src="https://rockethosting.xyz/static/p.png" alt="Prisum" width={400} height={400} className="rounded-lg shadow-lg mb-6" />
                     <div className="flex space-x-4 justify-center">
                       <motion.a href="https://github.com/PrisumDevolopes" className="text-blue-400 hover:text-blue-300 transition-colors" whileHover={{ scale: 1.2 }}><FaGithub size={24} /></motion.a>
                       <motion.a href="https://x.com/PrisumDevelopes" className="text-blue-400 hover:text-blue-300 transition-colors" whileHover={{ scale: 1.2 }}><FaTwitter size={24} /></motion.a>
@@ -178,7 +179,7 @@ export default function App() {
                       transition={{ duration: 0.8 }}
                       viewport={{ once: true }}
                     >
-                      Hi, I'm Prisum, a passionate full-stack developer with over 5 years of experience in creating web and mobile applications. I specialize in React, Node.js, and cloud technologies, with a keen interest in AI and machine learning applications in web development.
+                      Hi, I&apos;m Prisum, a passionate full-stack developer with over 5 years of experience in creating web and mobile applications. I specialize in React, Node.js, and cloud technologies, with a keen interest in AI and machine learning applications in web development.
                     </motion.p>
                     <motion.p 
                       className="text-lg mb-6"
@@ -187,7 +188,7 @@ export default function App() {
                       transition={{ duration: 0.8, delay: 0.2 }}
                       viewport={{ once: true }}
                     >
-                      My journey in tech started when I built my first website at the age of 15. Since then, I've been constantly learning and exploring new technologies to improve my skills and create better solutions. I'm driven by the desire to solve complex problems and create intuitive, user-friendly applications that make a positive impact.
+                      My journey in tech started when I built my first website at the age of 15. Since then, I&apos;ve been constantly learning and exploring new technologies to improve my skills and create better solutions. I&apos;m driven by the desire to solve complex problems and create intuitive, user-friendly applications that make a positive impact.
                     </motion.p>
                     <motion.h3 
                       className="text-2xl font-bold mb-4"
@@ -241,12 +242,12 @@ export default function App() {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+                      <Image src={project.image} alt={project.title} width={400} height={200} className="w-full h-48 object-cover" />
                       <div className="p-6">
                         <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                         <p className="text-gray-400 mb-4">{project.description}</p>
                         <div className="flex flex-wrap gap-2 mb-4">
-                          {project.tags.map((tag, tagIndex)   => (
+                          {project.tags.map((tag, tagIndex) => (
                             <span key={tagIndex} className="bg-gray-700 text-blue-400 px-2 py-1 rounded-full text-sm">
                               {tag}
                             </span>
@@ -269,7 +270,7 @@ export default function App() {
               {/* Blog Section */}
               <section id="blog" className="py-16">
                 <motion.h2 
-                  className="text-4xl font-bold mb-8"
+                  className="text-4xl font-bold  mb-8"
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
@@ -333,7 +334,7 @@ export default function App() {
                     viewport={{ once: true }}
                   >
                     <p className="text-lg mb-6">
-                      I'm always open to new opportunities, collaborations, or just a friendly chat about tech. Feel free to reach out to me using the form or through my social media channels.
+                      I&apos;m always open to new opportunities, collaborations, or just a friendly chat about tech. Feel free to reach out to me using the form or through my social media channels.
                     </p>
                     <div className="space-y-4 mb-8">
                       <div className="flex items-center">
