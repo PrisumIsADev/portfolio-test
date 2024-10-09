@@ -42,7 +42,7 @@ export default function Home() {
   const tabContent = {
     'what-i-do': 'I specialize in building robust and scalable web applications using modern technologies. My expertise includes front-end development with React, back-end development with Node.js, and database management with MongoDB and PostgreSQL. I also have experience with cloud services like AWS and containerization with Docker.',
     'projects': 'My portfolio includes a diverse range of projects, from full-stack web applications to mobile apps and AI-powered tools. Check out my Projects section to see detailed case studies of my work, including technologies used and challenges overcome.',
-    'hire-me': "I'm available for freelance work and open to full-time opportunities. Whether you need a custom web application, a mobile app, or technical consultation, I'm here to help bring your ideas to life. Let's discuss how we can work together to achieve your goals."
+    'hire-me': "I&apos;m available for freelance work and open to full-time opportunities. Whether you need a custom web application, a mobile app, or technical consultation, I&apos;m here to help bring your ideas to life. Let&apos;s discuss how we can work together to achieve your goals."
   }
 
   const fadeInUp = {
@@ -55,7 +55,7 @@ export default function Home() {
     setIsSubmitting(true)
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000))
-    setSubmitMessage("Thank you for your message. I'll get back to you soon!")
+    setSubmitMessage("Thank you for your message. I&apos;ll get back to you soon!")
     setFormState({ name: '', email: '', message: '' })
     setIsSubmitting(false)
   }
