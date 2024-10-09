@@ -19,7 +19,6 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
 
-  const { scrollYProgress } = useScroll()
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
